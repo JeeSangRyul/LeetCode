@@ -20,3 +20,32 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you minimize the total number of operations done?
+
+
+# 283.Move zeroes
+
+```swift
+class Solution {
+    func moveZeroes(_ nums: inout [Int]) {
+        var j = 0
+        var i = 0
+        while i < nums.count {
+            if nums[i] != 0 {
+                nums[j] = nums[i]
+                j += 1
+            }
+            i += 1
+        }
+
+        for c in j..<nums.count {
+            nums[c] = 0
+        }
+    }
+}
+```
+
+(제약사항) 여분의 array는 만들지 말라는 제약이 있다.
+
+two pointer 문제로 하나의 포인트는 while문에서 순회하면서 다른 포인터의 위치에 0이 아닌숫자를 옮겨주는 형식으로 풀었다.
+
+마지막에는 다옮긴 후 그 이후 숫자들은 전부 0으로 채워주면 된다.

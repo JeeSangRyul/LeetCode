@@ -142,3 +142,25 @@ func buildLinkedList(_ arr: [Int]) -> ListNode? {
         return head
     }
 ```
+
+# ✅ 왜 `getIntersectionNode()` 에서 `!==` 를 쓰는가?
+
+Linked list에서 intersect 라는 건
+
+**값이 같은 노드를 의미하는 게 아니라
+같은 객체(Node instance)를 공유**한다는 뜻이야.
+
+즉
+
+값이 `8`이든 `999`든 상관없이(값을 비교하는게 아니라)
+
+**메모리상 같은 노드여야 intersection!**
+
+그래서 `==` 가 아니라 `===` (or `!==`) 써야 한다.
+
+---
+
+# ✅ 한 줄 요약
+
+> !== → 두 변수가 같은 객체(동일 reference)가 아닌지 비교하는 연산자
+>
